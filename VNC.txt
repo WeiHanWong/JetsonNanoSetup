@@ -1,0 +1,19 @@
+sudo apt install tightvncserver && sudo apt install xtightvncviewer
+
+vncserver -geometry 1280x720
+
+password, view-only: n
+
+sudo vim ~/.vnc/xstartup
+
+add at top:
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+startlxde &
+
+sudo crontab -e
+
+@reboot su - nano -c '/usr/bin/tightvncserver -geometry 1280x720'
+
+
+reboot, then go to client vncviewer => <ip>:1
